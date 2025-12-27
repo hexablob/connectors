@@ -1,0 +1,16 @@
+services:
+  connector-ismalicious:
+    build: .
+    environment:
+      - OPENCTI_URL=http://localhost
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - CONNECTOR_ID=${CONNECTOR_ID}
+      - CONNECTOR_TYPE=INTERNAL_ENRICHMENT
+      - CONNECTOR_NAME=isMalicious
+      - CONNECTOR_SCOPE=IPv4-Addr,IPv6-Addr,Domain-Name
+      - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_AUTO=false
+      - ISMALICIOUS_API_URL=https://ismalicious.com
+      - ISMALICIOUS_API_KEY=${ISMALICIOUS_API_KEY}
+      - ISMALICIOUS_MAX_TLP=TLP:AMBER
+    restart: always
